@@ -1,0 +1,5 @@
+mvn io.quarkus:quarkus-maven-plugin:1.12.2.Final:create -DprojectGroupId=org.acme -DprojectArtifactId=mongodb-quickstart -DclassName="org.acme.mongodb.FruitResource" -Dpath="/fruits" -Dextensions="resteasy,resteasy-jackson,mongodb-client,resteasy-mutiny,context-propagation"
+mvnw compile quarkus:dev    
+mvnw quarkus:add-extension -Dextensions="container-image-docker"  
+mvnw clean package -Dquarkus.container-image.build=true   
+docker run -p8080:8080 kmca04/mongodb-quickstart:1.0.0-SNAPSHOT  
